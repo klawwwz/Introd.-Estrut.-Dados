@@ -13,8 +13,19 @@ def intercalar(lista1, lista2):#parametros das duas listas
 
     return listafinal
 
+def remdupl(listad):
+    listafinal=[]
+
+    for elemento in listad:
+        if elemento not in listafinal:
+            listafinal.append(elemento)
+    return listafinal
+
 lista1=[1, 3, 5, 7, 9]
 lista2=[2, 4, 6, 8]
+listad=[1, 2, 2, 4, 5, 7, 4, 9]
 
 newlist=intercalar(lista1, lista2)
 print(newlist)
+listasemdupl=remdupl(listad)
+print(listasemdupl)

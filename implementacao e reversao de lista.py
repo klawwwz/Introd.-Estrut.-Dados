@@ -22,5 +22,13 @@ class lista():
             print('elementos:')
             for elemento in self.elementos:
                 print(elemento)
+                
+    def inverter_lista(self):#REVERSÃO DE LISTA!!!!!!!!!!
+        tam=len(self.elementos)
+        for i in range(tam//2):#iterar metade da lista, serve para que nao tenha duplicação
+            self.elementos[i], self.elementos[tam-i-1]=self.elementos[tam-i-1], self.elementos[i]
+
+
+
 
 

@@ -30,17 +30,17 @@ def main():
 
             pass
 
-        if esc == '2':
+        elif esc == '2':
             ('Remover reserva: ')
             #adicionar um identificador em cada reserva, na hora de remover so preicsa remover o identificador da lista
             #e transformar o qaurto ocupado em vazio
             pass
 
-        if esc == '3':
+        elif esc == '3':
             
             pass
 
-        if esc == '4':
+        elif esc == '4':
             pass
 
 

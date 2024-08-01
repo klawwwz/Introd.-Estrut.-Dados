@@ -2,8 +2,16 @@
 #o hospede precisa entrar com o nome, check-in, check-out e numero do quarto
 
 
-def adc_reserva(nome, checkin, checkout, numero):
+def adc_reserva(reservas, id, nome, checkin, checkout, numero):
     #aqui precisa adicionar os nomes e quartos ocupados numa lista
+    reserva = {
+        'id' : id, #o id nao é o usuario que coloca
+        'nome' : nome,
+        'numero do quarto' : numero,
+        'checkin' : checkin,
+        'checkout' : checkout
+    }
+    reservas.append(reserva)
     pass
 
 def cncl_reserva(hotel, hospede):
@@ -11,6 +19,31 @@ def cncl_reserva(hotel, hospede):
 
 def bsc_reserva():
     pass
+
+def menu_edt():
+    ('O que você deseja editar?')
+    ('[1]-Nome\n[2]-Numero do quarto\n[3]-Data do check in\n[4]-Data do check out.')
+    esc = input('')
+    return esc
+
+
+
+def edt_reserva(reservas, id_reserva):
+        for reserva in reservas:
+            if reserva['id'] == id_reserva:
+                opcao = menu_edt()
+                if opcao == '1':
+                    nome = input('Digite o novo nome: ')
+                    reserva['nome'] = nome
+                elif opcao == '2':
+                    num = input('Digite o novo numero do qaurto: ')
+                    reserva['numero do quarto'] = num
+                elif opcao == '3':
+                    checkin = input('Atualize a data do checkin: ')
+                    reserva['checkin'] = checkin
+                elif opcao == '4':
+                    checkout = input('Digite a data do checkout: ')
+                    reserva['checkout'] = checkout 
 
 def lst_reserva():
     pass
@@ -33,8 +66,6 @@ def main():
         elif esc == '2':
             ('Remover reserva: ')
             #adicionar um identificador em cada reserva, na hora de remover so preicsa remover o identificador da lista
-            #e transformar o qaurto ocupado em vazio
-            pass
 
         elif esc == '3':
             
@@ -42,8 +73,6 @@ def main():
 
         elif esc == '4':
             pass
-
-
 
 if __name__ == "__main__":
     main()

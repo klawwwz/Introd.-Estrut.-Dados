@@ -18,7 +18,7 @@ def adc_reserva(reservas, numero, id_ant, nome, checkin_dia, checkin_mes, checko
     }
     reservas.append(reserva)
     print(f'Reserva adicionada com sucesso! Seu ID é {id_reserva}')
-    return  id_reserva 
+    return id_reserva 
 
 def cncl_reserva(reservas, id_reserva):
     for reserva in reservas:
@@ -60,7 +60,7 @@ def edt_reserva(reservas, id_reserva):
                     print(f'numero alterado com sucesso.')
                 elif opcao == 3:
                     dia_checkin = input('Atualize a data do dia do checkin: ')
-                    reserva['dia do checkin'] = dia_checkin
+                    reserva['checkin']['dia do checkin'] = dia_checkin
                     print(f'dia alterado com sucesso.')
                 elif opcao == 4:
                     checkin_mes = input('Atualize a data do mês do checkin: ')
@@ -74,8 +74,7 @@ def edt_reserva(reservas, id_reserva):
                     checkout_mes = input('Atualize o mês do checkout: ')
                     reserva['mes do checkout'] = checkout_mes
                     print(f'mês alterado com sucesso.')
-
-                    pass
+   
 
 def lst_reserva(reservas):
      if not reservas:
@@ -119,6 +118,7 @@ def main():
         elif esc == 4:
             print('Listar reservas: ')
             lst_reserva(reservas)
+
         elif esc == 5:
             print('EDITANDO RESERVAS: ')
             id = int(input('digite o id cujo você deseja editar as informações: '))
@@ -126,3 +126,4 @@ def main():
 if __name__ == "__main__":
     main()
     pass
+

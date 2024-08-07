@@ -77,14 +77,24 @@ def edt_reserva(reservas, id_reserva):
    
 
 def lst_reserva(reservas):
-     if not reservas:
-        print('Não há reservas na lista')
         for reserva in reservas:
-            print(f"ID: {reserva['id']}, Nome: {reserva['nome']}, Quarto: {reserva['numero do quarto']}, Check-in: {reserva['dia do checkin']} / {reserva['mes do checkin']}, Check-out: {reserva['dia do checkout']} / {reserva['mes do checkout']}")
+            print(f"ID: {reserva['id']}, Nome: {reserva['nome']}, Quarto: {reserva['numero do quarto']}, Check-in: {reserva['checkin']['dia do checkin']} / {reserva['checkin']['mes do checkin']}, Check-out: {reserva['checkout']['dia do checkout']} / {reserva['checkout']['mes do checkout']}")
 
-def chk_disponivel():
-    pass
-
+def chk_disponivel(reservas, num_quarto, a, b, c, d):
+    for rsrvs_gerais in reservas:
+        if rsrvs_gerais['numero do quarto'] == num_quarto:
+            mes_chkin_res = rsrvs_gerais['checkin']['mes do checkin']
+            mes_chkout_res = rsrvs_gerais['checkout']['mes do checkout']
+            dia_chkin_res = rsrvs_gerais['checkin']['dia do checkin']
+            dia_chkout_res = rsrvs_gerais['checkout']['dia do checkout']
+             
+            if b == mes_chkin_res and d == mes_chkout_res:
+                if (a >= dia_chkin_res and a <= dia_chkout_res) or (c >= dia_chkin_res and c <= dia_chkout_res):
+                    return False
+            elif b >= mes_chkin_res and d <= mes_chkout_res:
+                return False
+    else:       
+        return True
 def main():
     id_ant = 0
     reservas = []
@@ -101,8 +111,10 @@ def main():
             checkout_dia = int(input('Dia de saída: '))
             checkout_mes = int(input('Mês de saída: '))
             numero = int(input('Numero do quarto desejado: '))
-            chk_disponivel()
-            id_ant = adc_reserva(reservas, numero, id_ant, nome, checkin_dia, checkin_mes, checkout_dia, checkout_mes)
+            if chk_disponivel(reservas, numero, checkin_dia, checkin_mes, checkout_dia, checkout_mes):
+                id_ant = adc_reserva(reservas, numero, id_ant, nome, checkin_dia, checkin_mes, checkout_dia, checkout_mes)
+            else:
+                print('RESERVA NÃO PODE SER CONCLUIDA. Data ou quarto indisponivel.')
 
         elif esc == 2:
             print('Remover reserva: ')
@@ -125,5 +137,4 @@ def main():
             edt_reserva(reservas, id)
 if __name__ == "__main__":
     main()
-    pass
 

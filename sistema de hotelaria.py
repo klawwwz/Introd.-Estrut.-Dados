@@ -64,15 +64,15 @@ def edt_reserva(reservas, id_reserva):
                     print(f'dia alterado com sucesso.')
                 elif opcao == 4:
                     checkin_mes = input('Atualize a data do mês do checkin: ')
-                    reserva['mes do checkin'] = checkin_mes 
+                    reserva['checkin']['mes do checkin'] = checkin_mes 
                     print(f'mês alterado com sucesso.')
                 elif opcao == 5:
                     checkout_dia = input('Atualize o dia do checkout: ')
-                    reserva['dia do checkout'] = checkout_dia 
+                    reserva['checkout']['dia do checkout'] = checkout_dia 
                     print(f'dia alterado com sucesso.')
                 elif opcao == 6:
                     checkout_mes = input('Atualize o mês do checkout: ')
-                    reserva['mes do checkout'] = checkout_mes
+                    reserva['checkout']['mes do checkout'] = checkout_mes
                     print(f'mês alterado com sucesso.')
    
 
